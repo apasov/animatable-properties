@@ -1,0 +1,13 @@
+{
+  "name": "animatable-properties",
+  "version": "1.0.0",
+  "description": "Animatable CSS properties for use with Web Animations API",
+  "main": "index.js",
+  "repository": "https://github.com/apasov/animatable-properties",
+  "author": "Ilya Apasov",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "camelcase": "^5.3.1"
+  }
+}
