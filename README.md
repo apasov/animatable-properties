@@ -59,7 +59,8 @@ animatable.cssToJs('offset', false)
 //=> 'offset'
 
 //
-// Use isAnimatable() to detect if a property is animatable. The argument can be in any of the three formats and case insensitive.
+// Use isAnimatable() to detect if a property is animatable.
+// The argument can be in any of the three formats and case insensitive.
 //
 
 animatable.isAnimatable('grid-column-gap')
