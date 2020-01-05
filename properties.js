@@ -174,5 +174,3 @@ export default {
         return camelcase(property)
     }
 }
-
-
