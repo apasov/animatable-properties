@@ -1,13 +1,22 @@
 {
   "name": "animatable-properties",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Animatable CSS properties for use with Web Animations API, JavaScript and CSS",
   "main": "index.js",
   "repository": "https://github.com/apasov/animatable-properties",
   "author": "Ilya Apasov",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
   "dependencies": {
     "camelcase": "^5.3.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-terser": "^5.2.0"
   }
 }
