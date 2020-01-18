@@ -25,13 +25,19 @@ $ npm install animatable-properties
 // Import all functionality into one object:
 //
 
-import animatable from 'animatable-properties'
+import * as animatable from 'animatable-properties'
 
 //
 // Or import only what you need:
 //
 
 import { properties, propertiesCSS, propertiesJS, cssToJs, isAnimatable } from 'animatable-properties'
+
+//
+// Or load from CDN
+//
+
+<script src="https://cdn.jsdelivr.net/npm/animatable-properties@latest/dist/animatable.js"></script>
 
 //
 // Arrays containing all animatable properties in various formats.
