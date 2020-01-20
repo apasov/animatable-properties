@@ -1,5 +1,5 @@
-import arrays from "./arrays"
-import functions from "./functions"
+import arrays from './arrays'
+import functions from './functions'
 
 export const properties = arrays.properties
 export const propertiesCSS = arrays.propertiesCSS
