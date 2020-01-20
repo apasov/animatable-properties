@@ -1,6 +1,6 @@
 {
   "name": "animatable-properties",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Animatable CSS properties for use with Web Animations API, JavaScript and CSS",
   "main": "index.js",
   "repository": "https://github.com/apasov/animatable-properties",
