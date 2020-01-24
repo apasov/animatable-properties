@@ -109,4 +109,19 @@ animatable.isAnimatable('cssOffset')
 //=> true
 
 ```
+# Development
 
+Build the bundle for browsers into `./dist` folder:
+```
+yarn build
+```
+
+Run tests:
+```
+yarn test
+```
+
+Check coding style (`standard` must be [installed globally](https://github.com/standard/standard#install)):
+```
+standard
+```
