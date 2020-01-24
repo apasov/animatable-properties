@@ -1,6 +1,6 @@
 {
   "name": "animatable-properties",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Animatable CSS properties for use with Web Animations API, JavaScript and CSS",
   "main": "index.js",
   "repository": "https://github.com/apasov/animatable-properties",
@@ -8,22 +8,28 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "rollup -c rollup.config.js"
+    "build": "rollup -c rollup.config.js",
+    "test": "jest"
   },
   "dependencies": {
     "camelcase": "^5.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0",
     "rollup": "^1.29.0",
     "rollup-plugin-terser": "^5.2.0"
   },
   "standard": {
     "ignore": [
       "/dist/*.*"
-    ]
-  }
+    ],
+    "env": [ "jest" ]
+  },
   "keywords": [
     "waapi",
     "web",
