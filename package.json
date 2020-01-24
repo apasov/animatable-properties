@@ -24,4 +24,13 @@
       "/dist/*.*"
     ]
   }
+  "keywords": [
+    "waapi",
+    "web",
+    "animations",
+    "api",
+    "web-animations-api",
+    "css",
+    "transitions"
+  ]
 }
