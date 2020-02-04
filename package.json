@@ -2,11 +2,20 @@
   "name": "animatable-properties",
   "version": "2.0.2",
   "description": "Animatable CSS properties for use with Web Animations API, JavaScript and CSS",
-  "repository": "https://github.com/apasov/animatable-properties",
   "main": "src/index.js",
   "author": "Ilya Apasov",
   "license": "MIT",
   "private": false,
+  "homepage": "https://github.com/apasov/animatable-properties#readme",
+  "unpkg": "dist/animatable.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apasov/animatable-properties.git"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "test": "jest"
@@ -26,7 +35,7 @@
   },
   "standard": {
     "ignore": [
-      "/dist/*.*"
+      "/dist/*.js"
     ],
     "env": [ "jest" ]
   },
