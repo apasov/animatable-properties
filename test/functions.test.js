@@ -1,4 +1,4 @@
-import functions from '../functions'
+import functions from '../src/functions'
 
 const testData = {
   isAnimatable: {
