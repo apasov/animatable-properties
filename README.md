@@ -27,29 +27,26 @@ $ npm install animatable-properties
 
 ## Usage
 
-```js
-//
-// Import all functionality into one object:
-//
+Import all functionality into one object:
 
+```javascript
 import * as animatable from 'animatable-properties'
+```
 
-//
-// Or import only what you need:
-//
-
+Or import only what you need:
+```javascript
 import { properties, propertiesCSS, propertiesJS, cssToJs, isAnimatable } from 'animatable-properties'
+```
 
-//
-// Or load from CDN
-//
-
+Or load from CDN:
+```html
+<!-- Either -->
+<script src="https://unpkg.com/animatable-properties"></script>
+<!-- or -->
 <script src="https://cdn.jsdelivr.net/npm/animatable-properties@latest/dist/animatable.js"></script>
-
-//
-// Arrays containing all animatable properties in various formats.
-//
-
+```
+Arrays containing all animatable properties in various formats:
+```javascript
 animatable.properties
 //=> Array ["all", "backdropFilter", "background", "backgroundColor", …]
 // Web Animations API style => camelCase, "offset" becomes "cssOffset"
@@ -61,10 +58,9 @@ animatable.propertiesCSS
 animatable.propertiesJS
 //=> Array ["all", "backdropFilter", "background", "backgroundColor", …]
 // JavaScript style => camelCase, "offset" remains "offset"
-
-//
-// Use cssToJs() to convert property names from CSS format to Web Animations API or Javascript format. 
-//
+```
+Use `cssToJs` method to convert property names from CSS format to Web Animations API or Javascript format: 
+```javascript
 
 animatable.cssToJs('grid-column-gap')
 //=> 'gridColumnGap'
@@ -80,12 +76,10 @@ animatable.cssToJs('offset')
 
 animatable.cssToJs('offset', false)
 //=> 'offset'
-
-//
-// Use isAnimatable() to detect if a property is animatable.
-// The argument can be in any of the three formats and case insensitive.
-//
-
+```
+Use `isAnimatable` method to detect if a property is animatable.
+The argument can be in any of the three formats and case insensitive.
+```javascript
 animatable.isAnimatable('grid-column-gap')
 //=> true
 
@@ -109,7 +103,6 @@ animatable.isAnimatable('offset')
 
 animatable.isAnimatable('cssOffset')
 //=> true
-
 ```
 # Development
 
