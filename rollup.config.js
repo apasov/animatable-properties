@@ -1,21 +1,21 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
-import * as pack from './package.json'
+import * as pkg from './package.json'
 
 const name = 'animatable'
 
 export default {
-  input: 'index.js',
+  input: pkg.main,
   output: {
     file: `dist/${name}.js`,
-    format: 'iife',
+    format: 'umd',
     name: name,
     sourcemap: true
   },
   plugins: [resolve(), commonjs(), terser({
     output: {
-      preamble: `//${pack.name} v${pack.version} ${pack.repository}`
+      preamble: `//${pkg.name} v${pkg.version} ${pkg.homepage}`
     }
   })]
 }
