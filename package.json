@@ -17,7 +17,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "rollup -c",
+    "watch": "rollup -cw",
     "test": "jest"
   },
   "dependencies": {

@@ -16,11 +16,11 @@ Two helper functions included: `cssToJs()` and `isAnimatable()`. Explanation bel
 
 ## Install
 
-```
+```shell script
 $ yarn add animatable-properties
 ```
 or
-```
+```shell script
 $ npm install animatable-properties
 ```
 
@@ -107,16 +107,21 @@ animatable.isAnimatable('cssOffset')
 # Development
 
 Build the bundle for browsers into `./dist` folder:
-```
+```shell script
 yarn build
 ```
 
-Run tests:
+Watch. Something like Hot Module Reloading. Rebuild the bundle when its source files change on disk:
+```shell script
+yarn watch
 ```
+
+Run tests:
+```shell script
 yarn test
 ```
 
 Check coding style (`standard` must be [installed globally](https://github.com/standard/standard#install)):
-```
+```shell script
 standard
 ```
