@@ -70,14 +70,6 @@
     "semi": false,
     "singleQuote": true
   },
-  "standard": {
-    "ignore": [
-      "/dist/*.js"
-    ],
-    "env": [
-      "jest"
-    ]
-  },
   "keywords": [
     "waapi",
     "web",

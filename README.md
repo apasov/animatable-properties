@@ -1,6 +1,6 @@
 # Animatable CSS properties
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![](https://img.shields.io/npm/v/animatable-properties.svg)](https://www.npmjs.com/package/animatable-properties)
 [![](https://img.shields.io/bundlephobia/minzip/animatable-properties.svg)](https://bundlephobia.com/result?p=animatable-properties)
 
@@ -133,8 +133,14 @@ Run tests:
 yarn test
 ```
 
-Check coding style (`standard` must be [installed globally](https://github.com/standard/standard#install)):
+Lint:
 
 ```shell script
-standard
+yarn lint
+```
+
+Fix linting and style errors:
+
+```shell script
+yarn fix
 ```
