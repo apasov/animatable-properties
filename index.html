@@ -1,219 +1,210 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <title> Animatable CSS Properties </title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-<!-- Load script locally for development ↓↓↓ ---------->
-<!--  <script src="dist/animatable.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/animatable-properties@latest/dist/animatable.js"></script>
-<!--  Load from cdn: jsdelivr ↑↑↑ or unpkg ↓↓↓ -->
-<!--  <script src="https://unpkg.com/animatable-properties"></script>-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
-  <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css">
-  <link href="https://cdn.jsdelivr.net/npm/quasar@^1.8.5/dist/quasar.min.css" rel="stylesheet" type="text/css">
- </head>
+  <head>
+    <title>Animatable CSS Properties</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- Load script locally for development ↓↓↓ ---------->
+    <!--  <script src="dist/animatable.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/animatable-properties@latest/dist/animatable.js"></script>
+    <!--  Load from cdn: jsdelivr ↑↑↑ or unpkg ↓↓↓ -->
+    <!--  <script src="https://unpkg.com/animatable-properties"></script>-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css" />
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/quasar@^1.8.5/dist/quasar.min.css" rel="stylesheet" type="text/css" />
+  </head>
 
- <body>
- <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/quasar@^1.8.5/dist/quasar.umd.min.js"></script>
- <div id="q-app">
-  <q-layout view="hHh lpR fFf" class="shadow-2 rounded-borders">
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@^1.8.5/dist/quasar.umd.min.js"></script>
+    <div id="q-app">
+      <q-layout view="hHh lpR fFf" class="shadow-2 rounded-borders">
+        <q-header elevated>
+          <q-toolbar class="bg-primary glossy text-white">
+            <q-toolbar-title
+              >Animatable CSS properties
+              <div class="text-subtitle2">$ yarn add animatable-properties&nbsp;</div>
+            </q-toolbar-title>
 
-   <q-header elevated>
-    <q-toolbar class="bg-primary glossy text-white">
+            <q-btn flat dense round @click="drawer = !drawer" aria-label="Menu">
+              <q-icon name="menu" size="md"></q-icon>
+            </q-btn>
+          </q-toolbar>
+        </q-header>
 
-     <q-toolbar-title>Animatable CSS properties
-      <div class="text-subtitle2">$ yarn add animatable-properties&nbsp;</div>
-     </q-toolbar-title>
+        <q-drawer v-model="drawer" side="right" show-if-above>
+          <q-list no-border link inset-delimiter>
+            <q-item clickable v-ripple @click="Quasar.utils.openURL('https://github.com/apasov/animatable-properties')">
+              <q-item-section avatar>
+                <q-icon color="primary" name="fab fa-github"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Github repository</q-item-label>
+                <q-item-label caption>View repository on Github</q-item-label>
+              </q-item-section>
+            </q-item>
 
-     <q-btn flat dense round @click="drawer = !drawer" aria-label="Menu">
-      <q-icon name="menu" size="md"></q-icon>
-     </q-btn>
+            <q-item clickable v-ripple @click="Quasar.utils.openURL('https://npmjs.com/package/animatable-properties')">
+              <q-item-section avatar>
+                <q-icon color="primary" name="fab fa-npm"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>NPM package</q-item-label>
+                <q-item-label caption>View package on NPM</q-item-label>
+              </q-item-section>
+            </q-item>
 
-    </q-toolbar>
-   </q-header>
+            <q-item clickable v-ripple @click="Quasar.utils.openURL('https://github.com/apasov/animatable-properties/blob/master/index.html')">
+              <q-item-section avatar>
+                <q-icon color="primary" name="fab fa-github-alt"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Github demo</q-item-label>
+                <q-item-label caption>View source of this demo</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-drawer>
 
-   <q-drawer v-model="drawer" side="right" show-if-above>
-    <q-list no-border link inset-delimiter>
+        <q-page-container>
+          <q-page>
+            <div class="row">
+              <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
+                <q-card bordered>
+                  <q-card-section>
+                    <q-input v-model="modelType" dense label="Type property to check"></q-input>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div v-show="modelType" style="text-align: right;">
+                      <div class="text-h5">
+                        isAnimatable
+                        <q-badge align="middle" :color="isAnimatable(modelType) ? 'green' : 'red'">{{isAnimatable(modelType)}}</q-badge>
+                      </div>
+                      <span v-show="isAnimatable(modelType) && isCSS(modelType)">
+                        <div class="text-h5">
+                          CSS
+                          <q-badge align="middle">{{modelType ? modelType.toLowerCase() : ''}}</q-badge>
+                        </div>
+                        <div class="text-h5">
+                          JS
+                          <q-badge align="middle">{{Js(modelType)}}</q-badge>
+                        </div>
+                        <div class="text-h5">
+                          WAAPI
+                          <q-badge align="middle">{{Waapi(modelType)}}</q-badge>
+                        </div>
+                      </span>
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </div>
 
-     <q-item clickable v-ripple @click="Quasar.utils.openURL('https://github.com/apasov/animatable-properties')">
-      <q-item-section avatar>
-       <q-icon color="primary" name="fab fa-github"></q-icon>
-      </q-item-section>
-      <q-item-section>
-       <q-item-label>Github repository</q-item-label>
-       <q-item-label caption>View repository on Github</q-item-label>
-      </q-item-section>
-     </q-item>
+              <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
+                <q-card bordered>
+                  <q-card-section>
+                    <q-select v-model="model" :options="options" label="Select animatable property" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFn"></q-select>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div v-show="model" style="text-align: right;">
+                      <div class="text-h5">
+                        isAnimatable
+                        <q-badge align="middle" color="green">{{isAnimatable(model)}}</q-badge>
+                      </div>
+                      <div class="text-h5">
+                        CSS
+                        <q-badge align="middle">{{model}}</q-badge>
+                      </div>
+                      <div class="text-h5">
+                        JS
+                        <q-badge align="middle">{{Js(model)}}</q-badge>
+                      </div>
+                      <div class="text-h5">
+                        WAAPI
+                        <q-badge align="middle">{{Waapi(model)}}</q-badge>
+                      </div>
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </div>
+            </div>
+          </q-page>
+        </q-page-container>
 
-     <q-item clickable v-ripple @click="Quasar.utils.openURL('https://npmjs.com/package/animatable-properties')">
-      <q-item-section avatar>
-       <q-icon color="primary" name="fab fa-npm"></q-icon>
-      </q-item-section>
-      <q-item-section>
-       <q-item-label>NPM package</q-item-label>
-       <q-item-label caption>View package on NPM</q-item-label>
-      </q-item-section>
-     </q-item>
+        <q-footer elevated>
+          <q-toolbar class="bg-primary glossy text-white">
+            <q-btn flat icon="fab fa-github" label="View source of this demo" type="a" target="_blank" href="https://github.com/apasov/animatable-properties/blob/master/index.html">
+              <q-tooltip>
+                View source of this demo
+              </q-tooltip>
+            </q-btn>
+          </q-toolbar>
+        </q-footer>
+      </q-layout>
+    </div>
+    <script>
+      /* global Vue, animatable */
+      new Vue({
+        el: '#q-app',
 
-     <q-item clickable v-ripple @click="Quasar.utils.openURL('https://github.com/apasov/animatable-properties/blob/master/index.html')">
-      <q-item-section avatar>
-       <q-icon color="primary" name="fab fa-github-alt"></q-icon>
-      </q-item-section>
-      <q-item-section>
-       <q-item-label>Github demo</q-item-label>
-       <q-item-label caption>View source of this demo</q-item-label>
-      </q-item-section>
-     </q-item>
+        data: function() {
+          return {
+            model: null,
+            modelType: null,
+            drawer: false,
+            options: animatable.propertiesCSS
+          }
+        },
 
-    </q-list>
-   </q-drawer>
+        created() {
+          this._options = animatable.propertiesCSS
+        },
 
-   <q-page-container>
-    <q-page>
+        methods: {
+          Js(model) {
+            if (model) {
+              return animatable.cssToJs(model, false)
+            }
+            return ''
+          },
 
-     <div class="row">
+          Waapi(model) {
+            if (model) {
+              return animatable.cssToJs(model)
+            }
+            return ''
+          },
 
-      <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
-       <q-card bordered>
-        <q-card-section>
-         <q-input v-model="modelType" dense label="Type property to check"></q-input>
-        </q-card-section>
-        <q-separator></q-separator>
-        <q-card-section>
-         <div v-show="modelType" style="text-align: right;">
-          <div class="text-h5">
-           isAnimatable
-           <q-badge align="middle" :color="isAnimatable(modelType) ? 'green' : 'red'">{{isAnimatable(modelType)}}</q-badge>
-          </div>
-          <span v-show="isAnimatable(modelType) && isCSS(modelType)">
-           <div class="text-h5">
-            CSS
-            <q-badge align="middle">{{modelType ? modelType.toLowerCase() : ''}}</q-badge>
-           </div>
-           <div class="text-h5">
-            JS
-            <q-badge align="middle">{{Js(modelType)}}</q-badge>
-           </div>
-           <div class="text-h5">
-            WAAPI
-            <q-badge align="middle">{{Waapi(modelType)}}</q-badge>
-           </div>
-          </span>
-         </div>
-        </q-card-section>
-       </q-card>
-      </div>
+          isAnimatable(model) {
+            if (model) {
+              return animatable.isAnimatable(model)
+            }
+            return ''
+          },
 
-      <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
-       <q-card bordered>
-        <q-card-section>
-         <q-select v-model="model" :options="options" label="Select animatable property" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFn"></q-select>
-        </q-card-section>
-        <q-separator></q-separator>
-        <q-card-section>
-         <div v-show="model" style="text-align: right;">
-          <div class="text-h5">
-           isAnimatable
-           <q-badge align="middle" color="green">{{isAnimatable(model)}}</q-badge>
-          </div>
-          <div class="text-h5">
-           CSS
-           <q-badge align="middle">{{model}}</q-badge>
-          </div>
-          <div class="text-h5">
-           JS
-           <q-badge align="middle">{{Js(model)}}</q-badge>
-          </div>
-          <div class="text-h5">
-           WAAPI
-           <q-badge align="middle">{{Waapi(model)}}</q-badge>
-          </div>
-         </div>
-        </q-card-section>
-       </q-card>
-      </div>
+          isCSS(model) {
+            if (animatable.propertiesCSS.includes(model.toLowerCase())) {
+              return true
+            }
+            return false
+          },
 
-     </div>
+          filterFn(val, update) {
+            if (val === '') {
+              update(() => {
+                this.options = this._options
+              })
+              return
+            }
 
-    </q-page>
-   </q-page-container>
-
-   <q-footer elevated>
-    <q-toolbar class="bg-primary glossy text-white">
-     <q-btn flat icon="fab fa-github" label="View source of this demo" type="a" target="_blank" href="https://github.com/apasov/animatable-properties/blob/master/index.html">
-      <q-tooltip>
-       View source of this demo
-      </q-tooltip>
-     </q-btn>
-    </q-toolbar>
-   </q-footer>
-
-  </q-layout>
- </div>
- <script>
-  /* global Vue, animatable */
-  new Vue({
-   el: '#q-app',
-
-   data: function () {
-    return {
-     model: null,
-     modelType: null,
-     drawer: false,
-     options: animatable.propertiesCSS
-    }
-   },
-
-   created () {
-    this._options = animatable.propertiesCSS
-   },
-
-   methods: {
-    Js (model) {
-     if (model) {
-      return animatable.cssToJs(model, false)
-     }
-     return ''
-    },
-
-    Waapi (model) {
-     if (model) {
-      return animatable.cssToJs(model)
-     }
-     return ''
-    },
-
-    isAnimatable (model) {
-     if (model) {
-      return animatable.isAnimatable(model)
-     }
-     return ''
-    },
-
-    isCSS (model) {
-     if (animatable.propertiesCSS.includes(model.toLowerCase())) {
-      return true
-     }
-     return false
-    },
-
-    filterFn (val, update) {
-     if (val === '') {
-      update(() => {
-       this.options = this._options
+            update(() => {
+              const needle = val.toLowerCase()
+              this.options = this._options.filter(v => v.toLowerCase().indexOf(needle) > -1)
+            })
+          }
+        }
       })
-      return
-     }
-
-     update(() => {
-      const needle = val.toLowerCase()
-      this.options = this._options.filter(v => v.toLowerCase().indexOf(needle) > -1)
-     })
-    }
-   }
-  })
- </script>
- </body>
+    </script>
+  </body>
 </html>

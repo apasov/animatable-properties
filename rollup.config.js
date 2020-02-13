@@ -13,9 +13,13 @@ export default {
     name: name,
     sourcemap: true
   },
-  plugins: [resolve(), commonjs(), terser({
-    output: {
-      preamble: `//${pkg.name} v${pkg.version} ${pkg.homepage}`
-    }
-  })]
+  plugins: [
+    resolve(),
+    commonjs(),
+    terser({
+      output: {
+        preamble: `//${pkg.name} v${pkg.version} ${pkg.homepage}`
+      }
+    })
+  ]
 }
