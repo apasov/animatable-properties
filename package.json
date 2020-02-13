@@ -19,7 +19,13 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
-    "test": "jest"
+    "test": "jest",
+    "fix": "yarn fix:eslint && yarn fix:prettier && yarn build",
+    "fix:eslint": "eslint --fix \"**/*.*\"",
+    "fix:prettier": "prettier --write \"**/*.*\"",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint:eslint": "eslint \"**/*.*\"",
+    "lint:prettier": "prettier --check \"**/*.*\""
   },
   "dependencies": {
     "camelcase": "^5.3.1"
@@ -29,16 +35,47 @@
     "@babel/preset-env": "^7.8.3",
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-json": "^2.0.1",
+    "prettier": "^1.19.1",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
     "rollup": "^1.29.0",
     "rollup-plugin-terser": "^5.2.0"
   },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 11,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "html",
+      "json"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:json/recommended",
+      "prettier"
+    ]
+  },
+  "prettier": {
+    "printWidth": 180,
+    "semi": false,
+    "singleQuote": true
+  },
   "standard": {
     "ignore": [
       "/dist/*.js"
     ],
-    "env": [ "jest" ]
+    "env": [
+      "jest"
+    ]
   },
   "keywords": [
     "waapi",
