@@ -12,8 +12,8 @@ const testData = {
   }
 }
 
-Object.keys(testData).forEach(function (key) {
-  Object.keys(testData[key]).forEach(function (ke) {
+Object.keys(testData).forEach(function(key) {
+  Object.keys(testData[key]).forEach(function(ke) {
     testData[key][ke].forEach(element => {
       if (key === 'isAnimatable') {
         const expected = ke === 'true'
@@ -22,7 +22,7 @@ Object.keys(testData).forEach(function (key) {
         })
       } else {
         const webAnimationsAPI = ke === 'true'
-        Object.keys(element).forEach(function (k) {
+        Object.keys(element).forEach(function(k) {
           test(`${key}('${k}', ${webAnimationsAPI}) to equal ${element[k]}`, () => {
             expect(functions[key](k, webAnimationsAPI)).toBe(element[k])
           })
