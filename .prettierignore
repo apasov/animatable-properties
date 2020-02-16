@@ -2,6 +2,7 @@
 .thumbs.db
 coverage
 node_modules
+coverage
 LICENSE
 dist
 
