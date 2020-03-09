@@ -147,3 +147,9 @@ Fix linting and style errors:
 ```shell script
 yarn fix
 ```
+
+Update dependencies:
+
+```shell script
+yarn up
+```

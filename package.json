@@ -25,7 +25,8 @@
     "fix:prettier": "prettier --write \"**/*.*\"",
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "lint:eslint": "eslint \"**/*.*\"",
-    "lint:prettier": "prettier --check \"**/*.*\""
+    "lint:prettier": "prettier --check \"**/*.*\"",
+    "up": "yarn outdated && yarn upgrade && yarn install && yarn audit"
   },
   "dependencies": {
     "camelcase": "^5.3.1"
