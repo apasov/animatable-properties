@@ -5,13 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- Load script locally for development ↓↓↓ ---------->
-    <!--  <script src="dist/animatable.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/animatable-properties@latest/dist/animatable.js"></script>
+    <script src="dist/animatable.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/animatable-properties@latest/dist/animatable.js"></script>-->
     <!--  Load from cdn: jsdelivr ↑↑↑ or unpkg ↓↓↓ -->
-    <!--  <script src="https://unpkg.com/animatable-properties"></script>-->
+    <!--<script src="https://unpkg.com/animatable-properties"></script>-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css" />
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/quasar@^1.8.5/dist/quasar.min.css" rel="stylesheet" type="text/css" />
+
+    <link id="favicon" rel="shortcut icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@latest/svgs/brands/github.svg" />
   </head>
 
   <body>
@@ -19,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/quasar@^1.8.5/dist/quasar.umd.min.js"></script>
     <div id="q-app">
       <q-layout view="hHh lpR fFf" class="shadow-2 rounded-borders">
-        <q-header elevated>
+        <q-header elevated reveal>
           <q-toolbar class="bg-primary glossy text-white">
             <q-toolbar-title
               >Animatable CSS properties
@@ -34,35 +36,7 @@
 
         <q-drawer v-model="drawer" side="right" show-if-above>
           <q-list no-border link inset-delimiter>
-            <q-item clickable v-ripple @click="Quasar.utils.openURL('https://github.com/apasov/animatable-properties')">
-              <q-item-section avatar>
-                <q-icon color="primary" name="fab fa-github"></q-icon>
-              </q-item-section>
-              <q-item-section>
-                <q-item-label>Github repository</q-item-label>
-                <q-item-label caption>View repository on Github</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple @click="Quasar.utils.openURL('https://npmjs.com/package/animatable-properties')">
-              <q-item-section avatar>
-                <q-icon color="primary" name="fab fa-npm"></q-icon>
-              </q-item-section>
-              <q-item-section>
-                <q-item-label>NPM package</q-item-label>
-                <q-item-label caption>View package on NPM</q-item-label>
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple @click="Quasar.utils.openURL('https://github.com/apasov/animatable-properties/blob/master/index.html')">
-              <q-item-section avatar>
-                <q-icon color="primary" name="fab fa-github-alt"></q-icon>
-              </q-item-section>
-              <q-item-section>
-                <q-item-label>Github demo</q-item-label>
-                <q-item-label caption>View source of this demo</q-item-label>
-              </q-item-section>
-            </q-item>
+            <drawer-menu-item v-for="(item, index) in drawerMenuItems" :key="'drawer-menu-item-' + index" :url="item.url" :icon="item.icon" :label="item.label" :caption="item.caption"></drawer-menu-item>
           </q-list>
         </q-drawer>
 
@@ -132,7 +106,7 @@
           </q-page>
         </q-page-container>
 
-        <q-footer elevated>
+        <q-footer elevated reveal>
           <q-toolbar class="bg-primary glossy text-white">
             <q-btn flat icon="fab fa-github" label="View source of this demo" type="a" target="_blank" href="https://github.com/apasov/animatable-properties/blob/master/index.html">
               <q-tooltip>
@@ -144,7 +118,22 @@
       </q-layout>
     </div>
     <script>
-      /* global Vue, animatable */
+      /* global Vue, Quasar, animatable */
+
+      Vue.component('drawer-menu-item', {
+        props: ['url', 'icon', 'label', 'caption'],
+        template: `
+            <q-item clickable v-ripple @click="Quasar.utils.openURL(url)">
+              <q-item-section avatar>
+                <q-icon color="primary" :name="icon"></q-icon>
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>{{label}}</q-item-label>
+                <q-item-label caption>{{caption}}</q-item-label>
+              </q-item-section>
+            </q-item>`
+      })
+
       new Vue({
         el: '#q-app',
 
@@ -159,6 +148,32 @@
 
         created() {
           this._options = animatable.propertiesCSS
+          this.drawerMenuItems = [
+            {
+              url: 'https://github.com/apasov/animatable-properties',
+              icon: 'fab fa-github',
+              label: 'Github repository',
+              caption: 'View repository on Github'
+            },
+            {
+              url: 'https://www.npmjs.com/package/animatable-properties',
+              icon: 'fab fa-npm',
+              label: 'NPM package',
+              caption: 'View package on NPM'
+            },
+            {
+              url: 'https://github.com/apasov/animatable-properties/blob/master/index.html',
+              icon: 'fab fa-github-alt',
+              label: 'Github demo',
+              caption: 'View source of this demo'
+            },
+            {
+              url: 'https://quasar.dev/',
+              icon: 'img:https://cdn.quasar.dev/logo/svg/quasar-logo.svg',
+              label: 'Running on Quasar v' + Quasar.version,
+              caption: 'Visit Quasar website'
+            }
+          ]
         },
 
         methods: {
