@@ -22,10 +22,10 @@ const testFn = (testData, key) => {
             expect(functions[key](element)).toBe(expected)
           })
         } else {
-          const webAnimationsAPI = ke === 'true'
+          const webAnimationsAPI = ke === 'true' ? [] : [false]
           Object.keys(element).forEach(function(k) {
-            test(`${key}('${k}', ${webAnimationsAPI}) to equal ${element[k]}`, () => {
-              expect(functions[key](k, webAnimationsAPI)).toBe(element[k])
+            test(`${key}('${k}'${webAnimationsAPI.length ? ', ' + webAnimationsAPI.join() : ''}) to equal ${JSON.stringify(element[k])}`, () => {
+              expect(functions[key](k, ...webAnimationsAPI)).toBe(element[k])
             })
           })
         }
