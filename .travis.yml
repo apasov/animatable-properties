@@ -7,5 +7,5 @@ install:
   - yarn global add codecov
   - yarn
 script:
-  - jest
+  - yarn test
   - codecov
