@@ -5,6 +5,7 @@ before_install:
   - npm install -g yarn
 install:
   - yarn global add codecov
+  - yarn
 script:
   - jest
   - codecov
