@@ -26,7 +26,7 @@
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "lint:eslint": "eslint \"**/*.*\"",
     "lint:prettier": "prettier --check \"**/*.*\"",
-    "up": "yarn outdated && yarn upgrade && yarn install && yarn audit"
+    "up": "yarn upgrade-interactive && yarn outdated"
   },
   "dependencies": {
     "camelcase": "^5.3.1"
