@@ -131,18 +131,18 @@
                 <q-item-label>{{label}}</q-item-label>
                 <q-item-label caption>{{caption}}</q-item-label>
               </q-item-section>
-            </q-item>`
+            </q-item>`,
       })
 
       new Vue({
         el: '#q-app',
 
-        data: function() {
+        data: function () {
           return {
             model: null,
             modelType: null,
             drawer: false,
-            options: animatable.propertiesCSS
+            options: animatable.propertiesCSS,
           }
         },
 
@@ -153,26 +153,26 @@
               url: 'https://github.com/apasov/animatable-properties',
               icon: 'fab fa-github',
               label: 'Github repository',
-              caption: 'View repository on Github'
+              caption: 'View repository on Github',
             },
             {
               url: 'https://www.npmjs.com/package/animatable-properties',
               icon: 'fab fa-npm',
               label: 'NPM package',
-              caption: 'View package on NPM'
+              caption: 'View package on NPM',
             },
             {
               url: 'https://github.com/apasov/animatable-properties/blob/master/index.html',
               icon: 'fab fa-github-alt',
               label: 'Github demo',
-              caption: 'View source of this demo'
+              caption: 'View source of this demo',
             },
             {
               url: 'https://quasar.dev/',
               icon: 'img:https://cdn.quasar.dev/logo/svg/quasar-logo.svg',
               label: 'Running on Quasar v' + Quasar.version,
-              caption: 'Visit Quasar website'
-            }
+              caption: 'Visit Quasar website',
+            },
           ]
         },
 
@@ -215,10 +215,10 @@
 
             update(() => {
               const needle = val.toLowerCase()
-              this.options = this._options.filter(v => v.toLowerCase().indexOf(needle) > -1)
+              this.options = this._options.filter((v) => v.toLowerCase().indexOf(needle) > -1)
             })
-          }
-        }
+          },
+        },
       })
     </script>
   </body>

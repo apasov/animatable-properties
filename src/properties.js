@@ -158,5 +158,5 @@ export default [
   'width',
   'word-spacing',
   'z-index',
-  'zoom'
+  'zoom',
 ]

@@ -12,7 +12,7 @@ export default {
     return camelcase(property)
   },
 
-  isAnimatable: value => {
+  isAnimatable: (value) => {
     let property = value.toLowerCase()
     if (property.substr(0, 3) === 'css') {
       property = property.substr(3)
@@ -27,5 +27,5 @@ export default {
       }
     }
     return false
-  }
+  },
 }

@@ -11,15 +11,15 @@ export default {
     file: `dist/${name}.js`,
     format: 'umd',
     name: name,
-    sourcemap: true
+    sourcemap: true,
   },
   plugins: [
     resolve(),
     commonjs(),
     terser({
       output: {
-        preamble: `//${pkg.name} v${pkg.version} ${pkg.homepage}`
-      }
-    })
-  ]
+        preamble: `//${pkg.name} v${pkg.version} ${pkg.homepage}`,
+      },
+    }),
+  ],
 }
