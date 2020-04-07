@@ -19,8 +19,9 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw",
+    "gen": "node generate.js",
     "test": "yarn fix && jest",
-    "fix": "yarn fix:eslint && yarn fix:prettier && yarn build",
+    "fix": "yarn gen && yarn fix:eslint && yarn fix:prettier && yarn build",
     "fix:eslint": "eslint --fix \"**/*.*\"",
     "fix:prettier": "prettier --write \"**/*.*\"",
     "lint": "yarn lint:eslint && yarn lint:prettier",
