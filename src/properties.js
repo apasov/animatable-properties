@@ -1,4 +1,4 @@
-const mdnProperties = require('mdn-data/css/properties.json')
+import mdnProperties from 'mdn-data/css/properties.json'
 const properties = []
 Object.keys(mdnProperties).forEach((key) => {
   if (key.charAt(0) !== '-' && mdnProperties[key].animationType !== 'discrete') {
