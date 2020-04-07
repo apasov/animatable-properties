@@ -117,6 +117,22 @@ animatable.isAnimatable('cssOffset')
 //=> true
 ```
 
+`isAnimatable` has an optional argument:
+
+```javascript
+animatable.isAnimatable(stringToCheck, (returnCssProperty = false))
+```
+
+If `returnCssProperty` is `true` then `animatable.isAnimatable()` returns the CSS property instead of `true` if it's valid:
+
+```javascript
+animatable.isAnimatable('gridCoLumnGap', true)
+//=> grid-column-gap
+
+animatable.isAnimatable('textdecorationTHICKNess', true)
+//=> text-decoration-thickness
+```
+
 # Development
 
 Build the bundle for browsers into `./dist` folder:

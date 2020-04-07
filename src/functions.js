@@ -12,18 +12,18 @@ export default {
     return camelcase(property)
   },
 
-  isAnimatable: (value) => {
+  isAnimatable: (value, returnCssProperty = false) => {
     let property = value.toLowerCase()
     if (property.substr(0, 3) === 'css') {
       property = property.substr(3)
     }
     if (properties.includes(property)) {
-      return true
+      return returnCssProperty ? property : true
     }
     property = property.replace(/-/g, '')
     for (const prop of properties) {
       if (property === prop.replace(/-/g, '')) {
-        return true
+        return returnCssProperty ? prop : true
       }
     }
     return false
