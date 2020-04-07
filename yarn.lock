@@ -3237,6 +3237,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+mdn-data@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.8.tgz#b5b1b8b9dc76abb5261bf2b8c495a0b4565af5c6"
+  integrity sha512-2gcTclvIaw9K/D3+HeX2YrSmzJYvOL7CJCGTTrHlnzQ0N4KQkB/sgRwHArP7JzlL0feUwCZQ1C0yCO/us/dSdw==
+
 merge-stream@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"

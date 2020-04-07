@@ -29,7 +29,8 @@
     "up": "yarn upgrade-interactive && yarn outdated"
   },
   "dependencies": {
-    "camelcase": "^6.0.0"
+    "camelcase": "^6.0.0",
+    "mdn-data": "^2.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
