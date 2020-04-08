@@ -1,3 +1,16 @@
+# [2.1.0](https://github.com/apasov/animatable-properties/compare/v2.0.6...v2.1.0) (2020-04-08)
+
+### Bug Fixes
+
+- downgrade to camelcase v5.3.1 to fix syntax error in Firefox ([cd3bda8](https://github.com/apasov/animatable-properties/commit/cd3bda8f6a5972e7af4a71c5b65a3616c2852b01))
+- fetch properties from mdn-data import instead of require ([ae0c1b1](https://github.com/apasov/animatable-properties/commit/ae0c1b1c32de30e5bdd4e150b4fd7014d817a506))
+- generate properties.js file ([3728a08](https://github.com/apasov/animatable-properties/commit/3728a084984482ddcfc6a096a38c9b4c10a8c270))
+
+### Features
+
+- add returnCssProperty optional argument to isAnimatable to return the CSS property instead of boolean if it's valid ([eb7407d](https://github.com/apasov/animatable-properties/commit/eb7407da847085a999588cd0549ffbb1fbc845be))
+- fetch properties from mdn-data ([9026f01](https://github.com/apasov/animatable-properties/commit/9026f016311760f95da3f5fff0fcc0f1f0b61f5f))
+
 ## [2.0.6](https://github.com/apasov/animatable-properties/compare/v2.0.5...v2.0.6) (2020-03-27)
 
 ## [2.0.5](https://github.com/apasov/animatable-properties/compare/v2.0.4...v2.0.5) (2020-03-09)
