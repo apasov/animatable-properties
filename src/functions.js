@@ -1,5 +1,4 @@
 import properties from './properties'
-import camelcase from 'camelcase'
 
 export default {
   cssToJs: (value, webAnimationsAPI = true) => {
@@ -9,7 +8,9 @@ export default {
         property = 'css-' + property
       }
     }
-    return camelcase(property)
+    return property.replace(/-([a-z])/g, (match, letter) => {
+      return letter.toUpperCase()
+    })
   },
 
   isAnimatable: (value, returnCssProperty = false) => {
