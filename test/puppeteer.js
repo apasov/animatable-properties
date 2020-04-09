@@ -34,16 +34,16 @@ const properties = ['opacity', 'transform', 'background-color', 'color', 'visibi
     while (inputValue !== property) {
       i++
       await page.keyboard.press('ArrowDown')
-      await page.waitFor(200)
+      await page.waitFor(500)
       inputValue = await page.evaluate((x) => x.value, input)
-      await page.waitFor(200)
+      await page.waitFor(500)
       if (i > numberOfProperties) {
         console.log('Invalid property: ' + property)
         break
       }
     }
     await page.keyboard.press('Enter')
-    await page.waitFor(200)
+    await page.waitFor(500)
     const cssProperty = await page.evaluate((el) => el.innerHTML, await page.$('#cssProperty'))
     if (cssProperty !== property) {
       console.log('Invalid property: ' + property)
