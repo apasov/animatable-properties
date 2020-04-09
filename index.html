@@ -77,18 +77,18 @@
               <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
                 <q-card bordered>
                   <q-card-section>
-                    <q-select v-model="model" :options="options" label="Select animatable property" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFn"></q-select>
+                    <q-select v-model="model" :options="options" label="Select animatable property" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFn" id="propertySelect"></q-select>
                   </q-card-section>
                   <q-separator></q-separator>
                   <q-card-section>
                     <div v-show="model" style="text-align: right;">
                       <div class="text-h5">
                         isAnimatable
-                        <q-badge align="middle" color="green">{{isAnimatable(model)}}</q-badge>
+                        <q-badge align="middle" color="green" id="isAnimatable">{{isAnimatable(model)}}</q-badge>
                       </div>
                       <div class="text-h5">
                         CSS
-                        <q-badge align="middle">{{model}}</q-badge>
+                        <q-badge align="middle" id="cssProperty">{{model}}</q-badge>
                       </div>
                       <div class="text-h5">
                         JS

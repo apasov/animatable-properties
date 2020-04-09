@@ -20,13 +20,15 @@
     "build": "rollup -c",
     "watch": "rollup -cw",
     "gen": "node generate.js",
-    "test": "yarn fix && jest",
     "fix": "yarn gen && yarn fix:eslint && yarn fix:prettier && yarn build",
     "fix:eslint": "eslint --fix \"**/*.*\"",
     "fix:prettier": "prettier --write \"**/*.*\"",
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "lint:eslint": "eslint \"**/*.*\"",
     "lint:prettier": "prettier --check \"**/*.*\"",
+    "test": "yarn fix && yarn test:unit && yarn test:integration",
+    "test:integration": "yarn build && jest --coverage=false integration.test.js ",
+    "test:unit": "jest functions.test.js",
     "up": "yarn upgrade-interactive && yarn outdated"
   },
   "dependencies": {
@@ -46,6 +48,7 @@
     "eslint-plugin-json": "^2.1.1",
     "jest": "^25.3.0",
     "prettier": "^2.0.4",
+    "puppeteer": "^2.1.1",
     "rollup": "^2.3.4",
     "rollup-plugin-terser": "^5.3.0"
   },
@@ -63,6 +66,7 @@
   "eslintConfig": {
     "env": {
       "browser": true,
+      "es6": true,
       "jest": true,
       "node": true
     },
