@@ -55,10 +55,10 @@
                         isAnimatable
                         <q-badge align="middle" :color="isAnimatable(modelType) ? 'green' : 'red'">{{isAnimatable(modelType)}}</q-badge>
                       </div>
-                      <span v-show="isAnimatable(modelType) && isCSS(modelType)">
+                      <span v-show="isAnimatable(modelType)">
                         <div class="text-h5">
                           CSS
-                          <q-badge align="middle">{{modelType ? modelType.toLowerCase() : ''}}</q-badge>
+                          <q-badge align="middle">{{Css(modelType)}}</q-badge>
                         </div>
                         <div class="text-h5">
                           JS
@@ -177,16 +177,23 @@
         },
 
         methods: {
+          Css(model) {
+            if (model) {
+              return animatable.jsToCss(model)
+            }
+            return ''
+          },
+
           Js(model) {
             if (model) {
-              return animatable.cssToJs(model, false)
+              return animatable.cssToJs(animatable.jsToCss(model), false)
             }
             return ''
           },
 
           Waapi(model) {
             if (model) {
-              return animatable.cssToJs(model)
+              return animatable.cssToJs(animatable.jsToCss(model))
             }
             return ''
           },
@@ -196,13 +203,6 @@
               return animatable.isAnimatable(model)
             }
             return ''
-          },
-
-          isCSS(model) {
-            if (animatable.propertiesCSS.includes(model.toLowerCase())) {
-              return true
-            }
-            return false
           },
 
           filterFn(val, update) {

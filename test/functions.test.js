@@ -1,4 +1,4 @@
-import functions from '../src/functions'
+import * as functions from '../src/index'
 
 const testData = {
   isAnimatable: {
@@ -11,6 +11,10 @@ const testData = {
     true: [{ float: 'cssFloat' }, { offset: 'cssOffset' }, { 'grid-column-gap': 'gridColumnGap' }],
     false: [{ float: 'float' }, { offset: 'offset' }],
   },
+
+  jsToCss: {
+    returnCssProperty: [{ 'scroll-padding-block-end': 'scroll-padding-block-end' }, { scrollpadDINGBLOCkend: 'scroll-padding-block-end' }],
+  },
 }
 
 const testFn = (testData, key) => {
@@ -20,7 +24,7 @@ const testFn = (testData, key) => {
         if (key === 'isAnimatable') {
           if (ke === 'returnCssProperty') {
             const expected = element[Object.keys(element)[0]]
-            test(`${key}('${Object.keys(element)[0]}, true') to equal ${expected}`, () => {
+            test(`${key}('${Object.keys(element)[0]}', true) to equal ${expected}`, () => {
               expect(functions[key](Object.keys(element)[0], true)).toBe(expected)
             })
           } else {
@@ -29,6 +33,11 @@ const testFn = (testData, key) => {
               expect(functions[key](element)).toBe(expected)
             })
           }
+        } else if (key === 'jsToCss') {
+          const expected = element[Object.keys(element)[0]]
+          test(`${key}('${Object.keys(element)[0]}') to equal ${expected}`, () => {
+            expect(functions[key](Object.keys(element)[0])).toBe(expected)
+          })
         } else {
           const webAnimationsAPI = ke === 'true' ? [] : [false]
           Object.keys(element).forEach(function (k) {
