@@ -1,3 +1,13 @@
+## [2.1.1](https://github.com/apasov/animatable-properties/compare/v2.1.0...v2.1.1) (2020-04-10)
+
+### Features
+
+- add jsToCss() as alias to isAnimatable(string, true) ([e51f6af](https://github.com/apasov/animatable-properties/commit/e51f6afe63c30f80b9553be8a71ae62abf0989ff))
+
+### Performance Improvements
+
+- remove camelcase dependency ([e9d6d03](https://github.com/apasov/animatable-properties/commit/e9d6d03f1542c318e8c7d82d5c720d3d038f677b))
+
 # [2.1.0](https://github.com/apasov/animatable-properties/compare/v2.0.6...v2.1.0) (2020-04-08)
 
 ### Bug Fixes
