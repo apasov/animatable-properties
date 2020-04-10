@@ -16,7 +16,7 @@ It is based on the [MDN animatable CSS properties list](https://developer.mozill
 
 For use with Web Animations API "float" must be written as "cssFloat" and "offset" as "cssOffset". [Reference](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats)
 
-Two helper functions included: `cssToJs()` and `isAnimatable()`. Explanation below.
+Three helper functions included: `cssToJs()`, `jsToCss()` and `isAnimatable()`. Explanation below.
 
 ## Install
 
@@ -123,15 +123,20 @@ animatable.isAnimatable('cssOffset')
 animatable.isAnimatable(stringToCheck, (returnCssProperty = false))
 ```
 
-If `returnCssProperty` is `true` then `animatable.isAnimatable()` returns the CSS property instead of `true` if it's valid:
+If `returnCssProperty` is `true` then `animatable.isAnimatable()` returns the CSS property instead of `true` if it's valid and an empty string instead of `false` if invalid:
 
 ```javascript
 animatable.isAnimatable('gridCoLumnGap', true)
-//=> grid-column-gap
+//=> 'grid-column-gap'
 
 animatable.isAnimatable('textdecorationTHICKNess', true)
-//=> text-decoration-thickness
+//=> 'text-decoration-thickness'
+
+animatable.isAnimatable('textdecorrationTHICKNess', true)
+//=> ''
 ```
+
+`jsToCss()` is an alias of `isAnimatable(stringToCheck, true)`.
 
 # Development
 
