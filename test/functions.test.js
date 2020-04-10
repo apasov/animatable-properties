@@ -24,18 +24,18 @@ const testFn = (testData, key) => {
         if (key === 'isAnimatable') {
           if (ke === 'returnCssProperty') {
             const expected = element[Object.keys(element)[0]]
-            test(`${key}('${Object.keys(element)[0]}', true) to equal ${expected}`, () => {
+            test(`${key}('${Object.keys(element)[0]}', true) to equal ${JSON.stringify(expected)}`, () => {
               expect(functions[key](Object.keys(element)[0], true)).toBe(expected)
             })
           } else {
             const expected = ke === 'true'
-            test(`${key}('${element}') to equal ${expected}`, () => {
+            test(`${key}('${element}') to equal ${JSON.stringify(expected)}`, () => {
               expect(functions[key](element)).toBe(expected)
             })
           }
         } else if (key === 'jsToCss') {
           const expected = element[Object.keys(element)[0]]
-          test(`${key}('${Object.keys(element)[0]}') to equal ${expected}`, () => {
+          test(`${key}('${Object.keys(element)[0]}') to equal ${JSON.stringify(expected)}`, () => {
             expect(functions[key](Object.keys(element)[0])).toBe(expected)
           })
         } else {
