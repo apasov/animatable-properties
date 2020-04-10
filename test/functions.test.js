@@ -4,7 +4,7 @@ const testData = {
   isAnimatable: {
     true: ['all', 'offset', 'cssOffset', 'cSSoFFSet', 'grid-column-gap', 'grId-coLumn-GAP', 'grIdcoLumnGAP', 'gridCoLumnGap'],
     false: ['float', 'cssfloat', 'cSSFLOAt', 'hyphens'],
-    returnCssProperty: [{ 'text-decoration-thickness': 'text-decoration-thickness' }, { textdecorationTHICKNess: 'text-decoration-thickness' }],
+    returnCssProperty: [{ 'text-decoration-thickness': 'text-decoration-thickness' }, { textdecorationTHICKNess: 'text-decoration-thickness' }, { textdecorrationTHICKNess: '' }],
   },
 
   cssToJs: {

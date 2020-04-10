@@ -27,6 +27,6 @@ export default {
         return returnCssProperty ? prop : true
       }
     }
-    return false
+    return returnCssProperty ? '' : false
   },
 }
