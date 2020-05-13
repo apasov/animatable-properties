@@ -46,27 +46,27 @@
               <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
                 <q-card bordered>
                   <q-card-section>
-                    <q-input v-model="modelType" dense label="Type property to check"></q-input>
+                    <q-input v-model="model" dense label="Type property to check"></q-input>
                   </q-card-section>
                   <q-separator></q-separator>
                   <q-card-section>
-                    <div v-show="modelType" style="text-align: right;">
+                    <div v-show="model" style="text-align: right;">
                       <div class="text-h5">
                         isAnimatable
-                        <q-badge align="middle" :color="isAnimatable(modelType) ? 'green' : 'red'">{{isAnimatable(modelType)}}</q-badge>
+                        <q-badge align="middle" :color="isAnimatable(model) ? 'green' : 'red'">{{isAnimatable(model)}}</q-badge>
                       </div>
-                      <span v-show="isAnimatable(modelType)">
+                      <span v-show="isAnimatable(model)">
                         <div class="text-h5">
                           CSS
-                          <q-badge align="middle">{{Css(modelType)}}</q-badge>
+                          <q-badge align="middle">{{Css(model)}}</q-badge>
                         </div>
                         <div class="text-h5">
                           JS
-                          <q-badge align="middle">{{Js(modelType)}}</q-badge>
+                          <q-badge align="middle">{{Js(model)}}</q-badge>
                         </div>
                         <div class="text-h5">
                           WAAPI
-                          <q-badge align="middle">{{Waapi(modelType)}}</q-badge>
+                          <q-badge align="middle">{{Waapi(model)}}</q-badge>
                         </div>
                       </span>
                     </div>
@@ -77,44 +77,209 @@
               <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
                 <q-card bordered>
                   <q-card-section>
-                    <q-select v-model="model" :options="options" label="Select animatable property" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFn" id="propertySelect"></q-select>
+                    <div class="text-subtitle2">Select animatable property</div>
+                  </q-card-section>
+                  <q-card-section>
+                    <q-select v-model="model" :options="options" label="Sorted alphabetically" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFn" id="propertySelect"></q-select>
+                    <q-select v-model="model" :options="optionsPopular" label="Sorted by popularity" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFnPopular" id="propertySelectPopular"></q-select>
                   </q-card-section>
                   <q-separator></q-separator>
                   <q-card-section>
                     <div v-show="model" style="text-align: right;">
                       <div class="text-h5">
                         isAnimatable
-                        <q-badge align="middle" color="green" id="isAnimatable">{{isAnimatable(model)}}</q-badge>
+                        <q-badge align="middle" :color="isAnimatable(model) ? 'green' : 'red'" id="isAnimatable">{{isAnimatable(model)}}</q-badge>
                       </div>
-                      <div class="text-h5">
-                        CSS
-                        <q-badge align="middle" id="cssProperty">{{model}}</q-badge>
-                      </div>
-                      <div class="text-h5">
-                        JS
-                        <q-badge align="middle">{{Js(model)}}</q-badge>
-                      </div>
-                      <div class="text-h5">
-                        WAAPI
-                        <q-badge align="middle">{{Waapi(model)}}</q-badge>
-                      </div>
+                      <span v-show="isAnimatable(model)">
+                        <div class="text-h5">
+                          CSS
+                          <q-badge align="middle" id="cssProperty">{{Css(model)}}</q-badge>
+                        </div>
+                        <div class="text-h5">
+                          JS
+                          <q-badge align="middle">{{Js(model)}}</q-badge>
+                        </div>
+                        <div class="text-h5">
+                          WAAPI
+                          <q-badge align="middle">{{Waapi(model)}}</q-badge>
+                        </div>
+                      </span>
                     </div>
+                  </q-card-section>
+                </q-card>
+              </div>
+
+              <div class="q-ma-md" style="min-width: 300px; max-width: 100%;" v-show="isAnimatable(model)">
+                <q-card bordered>
+                  <q-card-section>
+                    <q-expansion-item dense-toggle switch-toggle-side expand-separator icon="help" :label="Css(model)">
+                      <q-card>
+                        <q-card-section>
+                          <q-card-section>
+                            <div class="text-subtitle2">Syntax:</div>
+                          </q-card-section>
+                          <span v-html="syntax(model)"></span>
+                          <br /><br />
+                          <q-btn color="primary" no-caps :label="'More info about \'' + Css(model) + '\''" v-ripple @click="Quasar.utils.openURL('https://developer.mozilla.org/docs/Web/CSS/' + Css(model))"></q-btn>
+                        </q-card-section>
+                      </q-card>
+                    </q-expansion-item>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <q-input v-model="modelValidate" :label="'Type value to validate ' + Css(model)" use-input input-debounce="0" hide-selected fill-input dense @filter="filterFn" id="propertySelect"></q-input>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div v-show="modelValidate" style="text-align: right;">
+                      <div class="text-subtitle2">
+                        validate({ '{{model}}': '{{modelValidate | escape}}' }, false)
+                        <q-badge align="middle" :color="validate(modelValidate, false) ? 'green' : 'red'">{{validate(modelValidate, false)}}</q-badge>
+                      </div>
+                      <div class="text-subtitle2" v-show="validate(modelValidate, false)">
+                        validate({ '{{model}}': '{{modelValidate | escape}}' })
+                        <q-badge align="middle" color="green">true</q-badge>
+                      </div>
+                      <span v-show="!validate(modelValidate, false)">
+                        <div class="text-subtitle2">
+                          validate({ '{{model}}': '{{modelValidate | escape}}' }).name
+                          <q-badge align="middle" color="red">{{validate(modelValidate).name}}</q-badge>
+                        </div>
+                        <div class="text-subtitle2">
+                          validate({ '{{model}}': '{{modelValidate | escape}}' }).message
+                          <pre align="middle" style="background-color: red; color: white; font-weight: bold; padding: 1em; font-family: 'Roboto';" class="text-subtitle2">{{validate(modelValidate).message}}</pre>
+                        </div>
+                      </span>
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+                <q-card bordered>
+                  <q-card-section>
+                    <div class="text-h6">obj =</div>
+                    <q-input v-model="code" hint="⬆️ Enter properties and values object to test (in JSON format) ⬆️" type="textarea" outlined>
+                      <template v-slot:append>
+                        <q-icon name="far fa-edit" />
+                      </template>
+                    </q-input>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div><q-btn flat color="primary" icon="fas fa-vial" label="Test:"></q-btn></div>
+                    <div class="text-subtitle2">
+                      validate(obj, false)
+                      <q-badge align="middle" :color="validateObject(code, false) ? 'green' : 'red'">{{validateObject(code, false)}}</q-badge>
+                    </div>
+                    <div class="text-subtitle2" v-show="validateObject(code, false)">
+                      validate(obj)
+                      <q-badge align="middle" color="green">true</q-badge>
+                    </div>
+                    <span v-show="!validateObject(code, false)">
+                      <div class="text-subtitle2">
+                        validate(obj).name
+                        <q-badge align="middle" color="red">{{validateObject(code).name}}</q-badge>
+                      </div>
+                      <div class="text-subtitle2">
+                        validate(obj).message
+                        <pre align="middle" style="background-color: red; color: white; font-weight: bold; padding: 1em; font-family: 'Roboto';" class="text-subtitle2">{{validateObject(code).message}}</pre>
+                      </div>
+                    </span>
+                  </q-card-section>
+                </q-card>
+              </div>
+
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+                <q-card bordered>
+                  <q-card-section style="text-align: left;">
+                    <div class="text-h6">obj = sanitize(obj<span v-show="format !== 'waapi'">, '{{format}}'</span>)</div>
+                    <q-input v-model="sanitized" hint="⬆️ Sanitized object ⬆️" type="textarea" readonly filled></q-input>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div><q-btn flat color="primary" icon="fas fa-wrench" label="Output format:"></q-btn></div>
+                    <q-radio keep-color v-model="format" val="waapi" label="WAAPI" color="teal"></q-radio>
+                    <q-radio keep-color v-model="format" val="js" label="JS" color="deep-purple"></q-radio>
+                    <q-radio keep-color v-model="format" val="css" label="CSS" color="deep-orange"></q-radio>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div><q-btn flat color="primary" icon="fas fa-vial" label="Test:"></q-btn></div>
+                    <div class="text-h6">
+                      <q-btn flat label="validate(obj)" no-caps></q-btn>
+                      <q-badge align="middle" :color="validateObject(sanitized, false) ? 'green' : 'red'" class="q-mr-md">{{validateObject(sanitized)}}</q-badge>
+                    </div>
+                    <div class="text-h6">
+                      <q-btn flat label="validate(obj, false)" no-caps></q-btn>
+                      <q-badge align="middle" :color="validateObject(sanitized, false) ? 'green' : 'red'">{{validateObject(sanitized, false)}}</q-badge>
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+                <q-card bordered>
+                  <q-card-section>
+                    <div class="text-h6">arr =</div>
+                    <q-input v-model="codeArray" hint="⬆️ Enter properties array to test (in JSON format) ⬆️" type="textarea" outlined>
+                      <template v-slot:append>
+                        <q-icon name="far fa-edit" />
+                      </template>
+                    </q-input>
+                  </q-card-section>
+                </q-card>
+              </div>
+
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+                <q-card bordered>
+                  <q-card-section style="text-align: left;">
+                    <div class="text-h6">arr = sanitize(arr<span v-show="formatArray !== 'waapi'">, '{{formatArray}}'</span>)</div>
+                    <q-input v-model="sanitizedArray" hint="⬆️ Sanitized array ⬆️" type="textarea" readonly filled></q-input>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div><q-btn flat color="primary" icon="fas fa-wrench" label="Output format:"></q-btn></div>
+                    <q-radio keep-color v-model="formatArray" val="waapi" label="WAAPI" color="teal"></q-radio>
+                    <q-radio keep-color v-model="formatArray" val="js" label="JS" color="deep-purple"></q-radio>
+                    <q-radio keep-color v-model="formatArray" val="css" label="CSS" color="deep-orange"></q-radio>
+                  </q-card-section>
+                </q-card>
+              </div>
+
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+                <q-card bordered>
+                  <q-card-section style="text-align: left;">
+                    <div class="text-h6">string =</div>
+                    <q-input v-model="codeString" hint="⬆️ Enter property name to sanitize ⬆️" outlined>
+                      <template v-slot:append>
+                        <q-icon name="far fa-edit" />
+                      </template>
+                    </q-input>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div class="text-h6">
+                      <q-btn flat :label="'sanitize(string' + (formatString === 'waapi' ? '' : `, '${formatString}'`) + ')'" no-caps></q-btn>
+                      <q-badge align="middle" :color="sanitizedString ? 'green' : 'red'" class="q-mr-md">{{sanitizedString}}</q-badge>
+                    </div>
+                  </q-card-section>
+                  <q-separator></q-separator>
+                  <q-card-section>
+                    <div><q-btn flat color="primary" icon="fas fa-wrench" label="Output format:"></q-btn></div>
+                    <q-radio keep-color v-model="formatString" val="waapi" label="WAAPI" color="teal"></q-radio>
+                    <q-radio keep-color v-model="formatString" val="js" label="JS" color="deep-purple"></q-radio>
+                    <q-radio keep-color v-model="formatString" val="css" label="CSS" color="deep-orange"></q-radio>
                   </q-card-section>
                 </q-card>
               </div>
             </div>
           </q-page>
         </q-page-container>
-
-        <q-footer elevated reveal>
-          <q-toolbar class="bg-primary glossy text-white">
-            <q-btn flat icon="fab fa-github" label="View source of this demo" type="a" target="_blank" href="https://github.com/apasov/animatable-properties/blob/master/index.html">
-              <q-tooltip>
-                View source of this demo
-              </q-tooltip>
-            </q-btn>
-          </q-toolbar>
-        </q-footer>
       </q-layout>
     </div>
     <script>
@@ -137,43 +302,103 @@
       new Vue({
         el: '#q-app',
 
+        filters: {
+          escape: function (value) {
+            if (!value) return ''
+            value = value.replace(/\\/g, '\\\\')
+            return value.replace(/'/g, "\\'")
+          },
+        },
+
         data: function () {
           return {
             model: null,
-            modelType: null,
+            modelValidate: null,
             drawer: false,
             options: animatable.propertiesCSS,
+            optionsPopular: animatable.popular(0, 1000),
+            code: JSON.stringify(
+              {
+                scrollSnapCoordinate: 'top',
+                'transfrm-origin': 'left',
+                offset: 'auto',
+                opacity: 100,
+                transform: 'scaleY(7)',
+                'border-bottom-color': 'blue',
+              },
+              null,
+              2
+            ),
+            codeArray: JSON.stringify(['scrollSnapCoordinate', 'transfrm-origin', 'offset', 'opacity', 'transform', 'border-bottom-color'], null, 2),
+            codeString: 'offset',
+            format: 'waapi',
+            formatArray: 'waapi',
+            formatString: 'waapi',
           }
+        },
+
+        computed: {
+          sanitized: function () {
+            let sanitized = ''
+            try {
+              sanitized = JSON.stringify(animatable.sanitize(JSON.parse(this.code), this.format), null, 2)
+            } catch (e) {
+              sanitized = e
+            }
+            return sanitized
+          },
+
+          sanitizedArray: function () {
+            let sanitized = ''
+            try {
+              sanitized = JSON.stringify(animatable.sanitize(JSON.parse(this.codeArray), this.formatArray), null, 2)
+            } catch (e) {
+              sanitized = e
+            }
+            return sanitized
+          },
+
+          sanitizedString: function () {
+            let sanitized = ''
+            try {
+              sanitized = animatable.sanitize(this.codeString, this.formatString)
+            } catch (e) {
+              sanitized = e
+              console.log(e)
+            }
+            return sanitized
+          },
         },
 
         created() {
           this._options = animatable.propertiesCSS
-          this.drawerMenuItems = [
-            {
-              url: 'https://github.com/apasov/animatable-properties',
-              icon: 'fab fa-github',
-              label: 'Github repository',
-              caption: 'View repository on Github',
-            },
-            {
-              url: 'https://www.npmjs.com/package/animatable-properties',
-              icon: 'fab fa-npm',
-              label: 'NPM package',
-              caption: 'View package on NPM',
-            },
-            {
-              url: 'https://github.com/apasov/animatable-properties/blob/master/index.html',
-              icon: 'fab fa-github-alt',
-              label: 'Github demo',
-              caption: 'View source of this demo',
-            },
-            {
-              url: 'https://quasar.dev/',
-              icon: 'img:https://cdn.quasar.dev/logo/svg/quasar-logo.svg',
-              label: 'Running on Quasar v' + Quasar.version,
-              caption: 'Visit Quasar website',
-            },
-          ]
+          ;(this._optionsPopular = animatable.popular(0, 1000)),
+            (this.drawerMenuItems = [
+              {
+                url: 'https://github.com/apasov/animatable-properties',
+                icon: 'fab fa-github',
+                label: 'Github repository',
+                caption: 'View repository on Github',
+              },
+              {
+                url: 'https://www.npmjs.com/package/animatable-properties',
+                icon: 'fab fa-npm',
+                label: 'NPM package',
+                caption: 'View package on NPM',
+              },
+              {
+                url: 'https://github.com/apasov/animatable-properties/blob/master/index.html',
+                icon: 'fab fa-github-alt',
+                label: 'Github demo',
+                caption: 'View source of this demo',
+              },
+              {
+                url: 'https://quasar.dev/',
+                icon: 'img:https://cdn.quasar.dev/logo/svg/quasar-logo.svg',
+                label: 'Running on Quasar v' + Quasar.version,
+                caption: 'Visit Quasar website',
+              },
+            ])
         },
 
         methods: {
@@ -205,6 +430,51 @@
             return ''
           },
 
+          escapeBrackets(text) {
+            return text.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;')
+          },
+
+          applyLinks(text, links) {
+            text = this.escapeBrackets(text)
+            Object.keys(links).forEach((key) => {
+              const keyEscaped = this.escapeBrackets(key)
+              const replace = new RegExp(keyEscaped, 'g')
+              text = text.toString().replace(replace, `<a href="${links[key]}" target="_blank">${keyEscaped}</a>`)
+            })
+            return text
+          },
+
+          syntax(model) {
+            if (model) {
+              const syntax = animatable.syntax(model)
+              let html = `<span class="text-h6">${this.applyLinks(syntax.main, syntax.links)}</span><br><br>`
+              syntax.order.forEach((key) => {
+                html += `<span class="text-subtitle2"><span class="text-primary">${this.escapeBrackets(key)}</span> = ${this.applyLinks(syntax[key], syntax.links)}</span><br>`
+              })
+              return html
+            }
+            return ''
+          },
+
+          validate(model, returnError = true) {
+            if (model) {
+              return animatable.validate({ [this.model]: model }, returnError)
+            }
+            return ''
+          },
+
+          validateObject(obj, returnError = true) {
+            try {
+              obj = JSON.parse(obj)
+            } catch (e) {
+              return returnError ? e : false
+            }
+            if (obj) {
+              return animatable.validate(obj, returnError)
+            }
+            return ''
+          },
+
           filterFn(val, update) {
             if (val === '') {
               update(() => {
@@ -216,6 +486,20 @@
             update(() => {
               const needle = val.toLowerCase()
               this.options = this._options.filter((v) => v.toLowerCase().indexOf(needle) > -1)
+            })
+          },
+
+          filterFnPopular(val, update) {
+            if (val === '') {
+              update(() => {
+                this.optionsPopular = this._optionsPopular
+              })
+              return
+            }
+
+            update(() => {
+              const needle = val.toLowerCase()
+              this.optionsPopular = this._optionsPopular.filter((v) => v.toLowerCase().indexOf(needle) > -1)
             })
           },
         },
