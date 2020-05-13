@@ -69,7 +69,7 @@ animatable.propertiesJS
 // JavaScript style => camelCase, "offset" remains "offset"
 ```
 
-#### cssToJs()
+### cssToJs()
 
 Use `cssToJs` method to convert property names from any format to Web Animations API or Javascript format:
 
@@ -88,7 +88,7 @@ animatable.cssToJs('offset', false)
 //=> 'offset'
 ```
 
-#### jsToCss()
+### jsToCss()
 
 Use `jsToCss` method to convert property names from any format to CSS format:
 
@@ -113,7 +113,7 @@ animatable.sanitize('gridColumnGap', 'css')
 //=> 'grid-column-gap'
 ```
 
-#### isAnimatable()
+### isAnimatable()
 
 Use `isAnimatable` method to detect if a property is animatable.
 The argument can be in any of the three formats and case insensitive.
@@ -165,7 +165,7 @@ animatable.isAnimatable('textdecorrationTHICKNess', true)
 
 `jsToCss()` is an alias of `isAnimatable(stringToCheck, true)`.
 
-#### popular()
+### popular()
 
 With `popular()` you can get array of animatable properties sorted by their usage popularity according to Chrome's anonymous usage statistics:
 https://chromestatus.com/metrics/css/animated
@@ -180,9 +180,10 @@ animatable.popular(10, 21)
 // Array(11) [ "top", "height", "box-shadow", "left", "bottom", "font-size", "outline-color", "outline-width", "background-size", "border-bottom-width", "padding-top" ]
 ```
 
-#### syntax()
+### syntax()
 
 Use `syntax(string)` to get syntax for a specific property. It returns an object of the following structure:
+
 ![image](https://user-images.githubusercontent.com/60752454/81773906-abde8800-94e9-11ea-9cc1-d45a6f8326ba.png)
 
 Where:
@@ -202,7 +203,7 @@ Another example:
 
 ![image](https://user-images.githubusercontent.com/60752454/81774608-49868700-94eb-11ea-924e-ef27caa81a66.png)
 
-#### validate()
+### validate()
 
 `validate(objectToValidate, returnError = true)`
 
@@ -215,7 +216,7 @@ Example:
 
 ![image](https://user-images.githubusercontent.com/60752454/81775351-fe6d7380-94ec-11ea-8dd7-126c4e480a35.png)
 
-#### sanitize()
+### sanitize()
 
 `sanitize(objectArrayOrString, format = 'waapi')`
 
