@@ -15,7 +15,17 @@ export default {
     sourcemap: true,
   },
   plugins: [
-    commonjs(),
+    commonjs({
+      namedExports: {
+        [require.resolve('css-tree')]: [
+          'parse', //
+          'walk',
+          'generate',
+          'createCustomError',
+          'lexer',
+        ],
+      },
+    }),
     json(),
     resolve(),
     terser({
