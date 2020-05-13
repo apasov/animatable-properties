@@ -9,3 +9,4 @@ export const jsToCss = (value) => {
   return functions.isAnimatable(value, true)
 }
 export const isAnimatable = functions.isAnimatable
+export const popular = functions.popular
