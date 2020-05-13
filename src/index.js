@@ -12,3 +12,4 @@ export const isAnimatable = functions.isAnimatable
 export const popular = functions.popular
 export const syntax = functions.syntax
 export const validate = functions.validate
+export const sanitize = functions.sanitize
