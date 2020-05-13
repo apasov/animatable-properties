@@ -1,3 +1,17 @@
+# [3.0.0](https://github.com/apasov/animatable-properties/compare/v2.1.1...v3.0.0) (2020-05-13)
+
+### Features
+
+- add popular() ([2411899](https://github.com/apasov/animatable-properties/commit/2411899fd046f9802974bc4ddfadf3d494a4cad7))
+- add sanitize() ([63cf062](https://github.com/apasov/animatable-properties/commit/63cf06210d8a3afbf23053cfd35d7cb0acc6ade1))
+- add syntax() ([2b0d9c2](https://github.com/apasov/animatable-properties/commit/2b0d9c24bba80391443ccfd778005f9a09891227))
+- add validate() ([088295f](https://github.com/apasov/animatable-properties/commit/088295f38e6a89c1eefc43f317dd71bf546f2e57))
+- change cssToJs to return empty string for non-animatable properties ([b43e2a6](https://github.com/apasov/animatable-properties/commit/b43e2a65be969d2be077bd0bec2ae07c8841a34b))
+
+### BREAKING CHANGES
+
+- cssToJs now returns empty string for non-animatable properties
+
 ## [2.1.1](https://github.com/apasov/animatable-properties/compare/v2.1.0...v2.1.1) (2020-04-10)
 
 ### Features
