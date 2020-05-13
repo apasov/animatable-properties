@@ -17,16 +17,16 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -cw",
+    "build": "yarn fix && rollup -c",
+    "watch": "yarn fix && rollup -cw",
     "gen": "node generate.js",
-    "fix": "yarn gen && yarn fix:eslint && yarn fix:prettier && yarn build",
+    "fix": "yarn gen && yarn fix:eslint && yarn fix:prettier",
     "fix:eslint": "eslint --fix \"**/*.*\"",
     "fix:prettier": "prettier --write \"**/*.*\"",
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "lint:eslint": "eslint \"**/*.*\"",
     "lint:prettier": "prettier --check \"**/*.*\"",
-    "test": "yarn fix && yarn jest",
+    "test": "yarn fix && jest && rollup -c",
     "up": "yarn upgrade-interactive && yarn outdated"
   },
   "dependencies": {
