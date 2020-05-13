@@ -41,7 +41,7 @@ import * as animatable from 'animatable-properties'
 Or import only what you need:
 
 ```javascript
-import { properties, propertiesCSS, propertiesJS, cssToJs, jsToCss, isAnimatable } from 'animatable-properties'
+import { properties, propertiesCSS, propertiesJS, cssToJs, jsToCss, isAnimatable, popular, syntax, validate, sanitize } from 'animatable-properties'
 ```
 
 Or load from CDN:
