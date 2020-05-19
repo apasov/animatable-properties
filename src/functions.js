@@ -41,7 +41,7 @@ const cssToJs = (value, webAnimationsAPI = true) => {
     return ''
   }
   if (webAnimationsAPI) {
-    if (property === 'float' || property === 'offset') {
+    if (property === 'offset') {
       property = 'css-' + property
     }
   }
