@@ -1,3 +1,9 @@
+## [3.0.1](https://github.com/apasov/animatable-properties/compare/v3.0.0...v3.0.1) (2020-05-19)
+
+### Bug Fixes
+
+- use mdn-data-animatable and css-tree-animatable instead of mdn-data and css-tree ([3271912](https://github.com/apasov/animatable-properties/commit/32719126a0e94db402eb6345a2925e71f55f198c))
+
 # [3.0.0](https://github.com/apasov/animatable-properties/compare/v2.1.1...v3.0.0) (2020-05-13)
 
 ### Features
