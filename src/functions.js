@@ -1,12 +1,12 @@
 import isNumber from 'lodash.isnumber'
 import isPlainObject from 'lodash.isplainobject'
 import isString from 'lodash.isstring'
-import { parse, walk, lexer } from 'css-tree'
-import nonAnimatable from './nonAnimatable.json'
+import { parse, walk, lexer } from 'css-tree-animatable'
+import nonAnimatable from 'mdn-data-animatable/css/non-animatable.json'
 import popularIndex from './popularIndex.json'
-import mdnProperties from 'css-tree/node_modules/mdn-data/css/properties.json'
-import mdnSyntaxes from 'css-tree/node_modules/mdn-data/css/syntaxes.json'
-import patch from 'css-tree/data/patch.json'
+import mdnProperties from 'mdn-data-animatable/css/properties.json'
+import mdnSyntaxes from 'mdn-data-animatable/css/syntaxes.json'
+import patch from 'css-tree-animatable/data/patch.json'
 
 const properties = []
 Object.keys(lexer.properties).forEach((key) => {

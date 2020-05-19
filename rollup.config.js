@@ -17,11 +17,9 @@ export default {
   plugins: [
     commonjs({
       namedExports: {
-        [require.resolve('css-tree')]: [
+        [require.resolve('css-tree-animatable')]: [
           'parse', //
           'walk',
-          'generate',
-          'createCustomError',
           'lexer',
         ],
       },
