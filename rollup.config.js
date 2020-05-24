@@ -15,15 +15,7 @@ export default {
     sourcemap: true,
   },
   plugins: [
-    commonjs({
-      namedExports: {
-        [require.resolve('css-tree-animatable')]: [
-          'parse', //
-          'walk',
-          'lexer',
-        ],
-      },
-    }),
+    commonjs(),
     json(),
     resolve(),
     terser({
