@@ -3387,10 +3387,15 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mdn-data-animatable@^1.0.1, mdn-data-animatable@^1.1.0:
+mdn-data-animatable@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mdn-data-animatable/-/mdn-data-animatable-1.1.0.tgz#ba3536cb7b103f30b3a8d3b5e6d2f0cd5d2f0eb5"
   integrity sha512-sP0BuF7u5GSmR+eZAki6TV8M6WoVD0MY1j3kqVmx1Fji82WYuriGCmrM4DXUR/Uu4hBvij9XOfa4kTpooKVjvg==
+
+mdn-data-animatable@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/mdn-data-animatable/-/mdn-data-animatable-1.1.1.tgz#f2cc7f9f447110af9b3d707921553ad144524826"
+  integrity sha512-fLX+JMYpFj+bQXoK0bPtx7n/0CkJBYS6J4Y9yFcq2KI+FL58XuGJY4JxlFZgtofYzCD8w8dK5QZUZZ0++EmvuA==
 
 merge-stream@^2.0.0:
   version "2.0.0"
