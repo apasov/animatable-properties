@@ -1,3 +1,9 @@
+## [3.0.2](https://github.com/apasov/animatable-properties/compare/v3.0.1...v3.0.2) (2020-05-24)
+
+### Bug Fixes
+
+- update dependencies. Significantly reduce bundle size ([d890382](https://github.com/apasov/animatable-properties/commit/d890382b3095c6dafd01a09f8ee8a68abb693b71))
+
 ## [3.0.1](https://github.com/apasov/animatable-properties/compare/v3.0.0...v3.0.1) (2020-05-19)
 
 ### Bug Fixes
