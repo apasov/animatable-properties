@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "build": "yarn fix && rollup -c",
+    "c": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "watch": "yarn fix && rollup -cw",
     "gen": "node generate.js",
     "fix": "yarn gen && yarn fix:eslint && yarn fix:prettier",
