@@ -1,3 +1,9 @@
+## [3.0.3](https://github.com/apasov/animatable-properties/compare/v3.0.2...v3.0.3) (2020-06-04)
+
+### Bug Fixes
+
+- remove from-font value from text-underline-offset ([060c201](https://github.com/apasov/animatable-properties/commit/060c201bb430556f28196af1a7fb23325f6c14e2))
+
 ## [3.0.2](https://github.com/apasov/animatable-properties/compare/v3.0.1...v3.0.2) (2020-05-24)
 
 ### Bug Fixes
