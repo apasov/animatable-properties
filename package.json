@@ -30,11 +30,11 @@
     "up": "yarn upgrade-interactive && ncu -i && yarn"
   },
   "dependencies": {
-    "css-tree-animatable": "^1.0.2",
+    "css-tree-animatable": "^1.0.3",
     "lodash.isnumber": "^3.0.3",
     "lodash.isplainobject": "^4.0.6",
     "lodash.isstring": "^4.0.1",
-    "mdn-data-animatable": "^1.1.1"
+    "mdn-data-animatable": "^1.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
