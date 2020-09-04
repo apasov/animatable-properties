@@ -43,14 +43,14 @@
         <q-page-container>
           <q-page>
             <div class="row">
-              <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
+              <div class="q-ma-md" style="min-width: 300px; max-width: 300px">
                 <q-card bordered>
                   <q-card-section>
                     <q-input v-model="model" dense label="Type property to check"></q-input>
                   </q-card-section>
                   <q-separator></q-separator>
                   <q-card-section>
-                    <div v-show="model" style="text-align: right;">
+                    <div v-show="model" style="text-align: right">
                       <div class="text-h5">
                         isAnimatable
                         <q-badge align="middle" :color="isAnimatable(model) ? 'green' : 'red'">{{isAnimatable(model)}}</q-badge>
@@ -74,7 +74,7 @@
                 </q-card>
               </div>
 
-              <div class="q-ma-md" style="min-width: 300px; max-width: 300px;">
+              <div class="q-ma-md" style="min-width: 300px; max-width: 300px">
                 <q-card bordered>
                   <q-card-section>
                     <div class="text-subtitle2">Select animatable property</div>
@@ -85,7 +85,7 @@
                   </q-card-section>
                   <q-separator></q-separator>
                   <q-card-section>
-                    <div v-show="model" style="text-align: right;">
+                    <div v-show="model" style="text-align: right">
                       <div class="text-h5">
                         isAnimatable
                         <q-badge align="middle" :color="isAnimatable(model) ? 'green' : 'red'" id="isAnimatable">{{isAnimatable(model)}}</q-badge>
@@ -109,7 +109,7 @@
                 </q-card>
               </div>
 
-              <div class="q-ma-md" style="min-width: 300px; max-width: 100%;" v-show="isAnimatable(model)">
+              <div class="q-ma-md" style="min-width: 300px; max-width: 100%" v-show="isAnimatable(model)">
                 <q-card bordered>
                   <q-card-section>
                     <q-expansion-item dense-toggle switch-toggle-side expand-separator icon="help" :label="Css(model)">
@@ -131,7 +131,7 @@
                   </q-card-section>
                   <q-separator></q-separator>
                   <q-card-section>
-                    <div v-show="modelValidate" style="text-align: right;">
+                    <div v-show="modelValidate" style="text-align: right">
                       <div class="text-subtitle2">
                         validate({ '{{model}}': '{{modelValidate | escape}}' }, false)
                         <q-badge align="middle" :color="validate(modelValidate, false) ? 'green' : 'red'">{{validate(modelValidate, false)}}</q-badge>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="text-subtitle2">
                           validate({ '{{model}}': '{{modelValidate | escape}}' }).message
-                          <pre align="middle" style="background-color: red; color: white; font-weight: bold; padding: 1em; font-family: 'Roboto';" class="text-subtitle2">{{validate(modelValidate).message}}</pre>
+                          <pre align="middle" style="background-color: red; color: white; font-weight: bold; padding: 1em; font-family: 'Roboto'" class="text-subtitle2">{{validate(modelValidate).message}}</pre>
                         </div>
                       </span>
                     </div>
@@ -157,7 +157,7 @@
             </div>
 
             <div class="row">
-              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%">
                 <q-card bordered>
                   <q-card-section>
                     <div class="text-h6">obj =</div>
@@ -185,16 +185,16 @@
                       </div>
                       <div class="text-subtitle2">
                         validate(obj).message
-                        <pre align="middle" style="background-color: red; color: white; font-weight: bold; padding: 1em; font-family: 'Roboto';" class="text-subtitle2">{{validateObject(code).message}}</pre>
+                        <pre align="middle" style="background-color: red; color: white; font-weight: bold; padding: 1em; font-family: 'Roboto'" class="text-subtitle2">{{validateObject(code).message}}</pre>
                       </div>
                     </span>
                   </q-card-section>
                 </q-card>
               </div>
 
-              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%">
                 <q-card bordered>
-                  <q-card-section style="text-align: left;">
+                  <q-card-section style="text-align: left">
                     <div class="text-h6">obj = sanitize(obj<span v-show="format !== 'waapi'">, '{{format}}'</span>)</div>
                     <q-input v-model="sanitized" hint="⬆️ Sanitized object ⬆️" type="textarea" readonly filled></q-input>
                   </q-card-section>
@@ -222,7 +222,7 @@
             </div>
 
             <div class="row">
-              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%">
                 <q-card bordered>
                   <q-card-section>
                     <div class="text-h6">arr =</div>
@@ -235,9 +235,9 @@
                 </q-card>
               </div>
 
-              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%">
                 <q-card bordered>
-                  <q-card-section style="text-align: left;">
+                  <q-card-section style="text-align: left">
                     <div class="text-h6">arr = sanitize(arr<span v-show="formatArray !== 'waapi'">, '{{formatArray}}'</span>)</div>
                     <q-input v-model="sanitizedArray" hint="⬆️ Sanitized array ⬆️" type="textarea" readonly filled></q-input>
                   </q-card-section>
@@ -251,9 +251,9 @@
                 </q-card>
               </div>
 
-              <div class="q-ma-md" style="min-width: 30%; max-width: 100%;">
+              <div class="q-ma-md" style="min-width: 30%; max-width: 100%">
                 <q-card bordered>
-                  <q-card-section style="text-align: left;">
+                  <q-card-section style="text-align: left">
                     <div class="text-h6">string =</div>
                     <q-input v-model="codeString" hint="⬆️ Enter property name to sanitize ⬆️" outlined>
                       <template v-slot:append>
