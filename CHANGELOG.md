@@ -1,3 +1,9 @@
+## [3.0.6](https://github.com/apasov/animatable-properties/compare/v3.0.5...v3.0.6) (2020-10-12)
+
+### Performance Improvements
+
+- update dependencies ([7630f4b](https://github.com/apasov/animatable-properties/commit/7630f4b23387440a5cb047e4990cd6b3c61a1dc4))
+
 ## [3.0.5](https://github.com/apasov/animatable-properties/compare/v3.0.4...v3.0.5) (2020-08-04)
 
 ### Performance Improvements
