@@ -1,3 +1,9 @@
+## [3.0.7](https://github.com/apasov/animatable-properties/compare/v3.0.6...v3.0.7) (2020-11-28)
+
+### Performance Improvements
+
+- upgrade devDependencies to next major versions: @rollup/plugin-commonjs to v16.0.0 and @rollup/plugin-node-resolve to v10.0.0 ([7432f23](https://github.com/apasov/animatable-properties/commit/7432f238257b9b51d10ecba1519d7be39abb7eed))
+
 ## [3.0.6](https://github.com/apasov/animatable-properties/compare/v3.0.5...v3.0.6) (2020-10-12)
 
 ### Performance Improvements
