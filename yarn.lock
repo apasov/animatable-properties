@@ -1828,11 +1828,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2:
     which "^2.0.1"
 
 css-tree-animatable@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/css-tree-animatable/-/css-tree-animatable-1.0.8.tgz#dcff9a86cb916a9e33a0f6b50769cd57c3da71c2"
-  integrity sha512-uGJvjwcRn3YWWyUndWspX2InFvSNnXgQ4nHLAzI2ymuQUTknAtEMShGTpnhKCDsgPtH1czmdvrOC6M6CkRecxg==
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/css-tree-animatable/-/css-tree-animatable-1.0.9.tgz#5c97c33fab42a921212c087188c3148ee3e52ae1"
+  integrity sha512-t2KD7+bZtQRIoyPjR2/KhIOpI4Yqzbft/HEbDgfkX15v/A5kqzBsn4DXdllOvlGMPe9evG8ZwykXjgfyNxxEDQ==
   dependencies:
-    mdn-data-animatable "^1.1.7"
+    mdn-data-animatable "^1.1.8"
 
 cssom@^0.4.4:
   version "0.4.4"
@@ -3553,10 +3553,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mdn-data-animatable@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/mdn-data-animatable/-/mdn-data-animatable-1.1.7.tgz#f8acf75dd8191bc7dfbbf73576abb43c1790e220"
-  integrity sha512-sNsysVzejHdckCZDFAQkZ72x9VIqwBthcKQ9iRSN86EtaSXiqFImXVRZjM1P9bFGMRWp9/ckynmnIK/gHdBYrA==
+mdn-data-animatable@^1.1.7, mdn-data-animatable@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/mdn-data-animatable/-/mdn-data-animatable-1.1.8.tgz#076e45436e1b159b643b37603702b40b26a26031"
+  integrity sha512-yUtsd4O4361D11E7JJAO06asOvOwe89X11dennwCOPWkfuoGlY33LZfvo2FvBjXsEBaMisO+jRjSwKL7uGvWcQ==
 
 merge-stream@^2.0.0:
   version "2.0.0"
