@@ -1,3 +1,9 @@
+## [3.0.10](https://github.com/apasov/animatable-properties/compare/v3.0.9...v3.0.10) (2021-06-16)
+
+### Features
+
+- upgrade mdn-data-animatable and css-tree-animatable; upgrade devDependencies ([8c7e5eb](https://github.com/apasov/animatable-properties/commit/8c7e5eb1a1fd70bd2c48a40b11fefaa75bc2214f))
+
 ## [3.0.9](https://github.com/apasov/animatable-properties/compare/v3.0.8...v3.0.9) (2021-03-04)
 
 ### Features
