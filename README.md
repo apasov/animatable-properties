@@ -6,7 +6,7 @@
 [![Dependencies Status](https://david-dm.org/apasov/animatable-properties.svg?theme=shields.io)](https://david-dm.org/apasov/animatable-properties)
 [![devDependencies Status](https://david-dm.org/apasov/animatable-properties/dev-status.svg?theme=shields.io)](https://david-dm.org/apasov/animatable-properties?type=dev)
 [![codecov](https://codecov.io/gh/apasov/animatable-properties/branch/master/graph/badge.svg)](https://codecov.io/gh/apasov/animatable-properties)
-[![Build Status](https://travis-ci.org/apasov/animatable-properties.svg?branch=master)](https://travis-ci.org/apasov/animatable-properties)
+[![Build Status](https://app.travis-ci.com/apasov/animatable-properties.svg?branch=master)](https://app.travis-ci.com/apasov/animatable-properties)
 
 [DEMO](https://apasov.github.io/animatable-properties/) and its [source code](https://github.com/apasov/animatable-properties/blob/master/index.html).
 
