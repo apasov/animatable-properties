@@ -1,3 +1,9 @@
+## [3.0.14](https://github.com/apasov/animatable-properties/compare/v3.0.13...v3.0.14) (2021-12-22)
+
+### Features
+
+- upgrade mdn-data to v2.0.25; upgrade devDependencies ([deef47c](https://github.com/apasov/animatable-properties/commit/deef47cd5ed8d7e532f85c2dd4ccb2eca4568090))
+
 ## [3.0.13](https://github.com/apasov/animatable-properties/compare/v3.0.12...v3.0.13) (2021-09-18)
 
 ### Features
