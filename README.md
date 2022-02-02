@@ -3,8 +3,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![](https://img.shields.io/npm/v/animatable-properties.svg)](https://www.npmjs.com/package/animatable-properties)
 [![](https://img.shields.io/bundlephobia/minzip/animatable-properties.svg)](https://bundlephobia.com/result?p=animatable-properties)
-[![Dependencies Status](https://david-dm.org/apasov/animatable-properties.svg?theme=shields.io)](https://david-dm.org/apasov/animatable-properties)
-[![devDependencies Status](https://david-dm.org/apasov/animatable-properties/dev-status.svg?theme=shields.io)](https://david-dm.org/apasov/animatable-properties?type=dev)
+[![Depfu](https://badges.depfu.com/badges/360500af51421de8caf0e49932c149d9/count.svg)](https://depfu.com/github/apasov/animatable-properties?project_id=11415)
 [![codecov](https://codecov.io/gh/apasov/animatable-properties/branch/master/graph/badge.svg)](https://codecov.io/gh/apasov/animatable-properties)
 [![Build Status](https://app.travis-ci.com/apasov/animatable-properties.svg?branch=master)](https://app.travis-ci.com/apasov/animatable-properties)
 
