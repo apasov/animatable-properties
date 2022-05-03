@@ -31,26 +31,26 @@
     "up": "yarn upgrade-interactive && ncu -i && yarn"
   },
   "dependencies": {
-    "css-tree-animatable": "^1.0.16",
+    "css-tree-animatable": "^1.0.17",
     "lodash.isnumber": "^3.0.3",
     "lodash.isplainobject": "^4.0.6",
     "lodash.isstring": "^4.0.1",
-    "mdn-data-animatable": "^1.1.16"
+    "mdn-data-animatable": "^1.1.18"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "@rollup/plugin-commonjs": "^21.0.1",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@rollup/plugin-commonjs": "^21.1.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.1.1",
-    "babel-jest": "^27.4.5",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "babel-jest": "^28.0.3",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-json": "^3.1.0",
-    "jest": "^27.4.5",
-    "prettier": "^2.5.1",
-    "rollup": "^2.61.1",
+    "jest": "^28.0.3",
+    "prettier": "^2.6.2",
+    "rollup": "~2.66.1",
     "rollup-plugin-terser": "^7.0.2"
   },
   "jest": {
