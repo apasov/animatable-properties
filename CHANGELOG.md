@@ -1,3 +1,9 @@
+## [3.0.16](https://github.com/apasov/animatable-properties/compare/v3.0.15...v3.0.16) (2022-08-15)
+
+### Features
+
+- upgrade mdn-data to v2.0.28 ([dbdc24a](https://github.com/apasov/animatable-properties/commit/dbdc24afb2f116c86d5792e92e6228810c3dae43))
+
 ## [3.0.15](https://github.com/apasov/animatable-properties/compare/v3.0.14...v3.0.15) (2022-05-03)
 
 ### Features
