@@ -111,7 +111,7 @@ const testSyntax = (testExpression, key = 'syntax') => {
         main: expect.not.stringMatching(/^\s*$/),
         links: expect.any(Object),
         order: expect.any(Array),
-      })
+      }),
     )
   })
 }
