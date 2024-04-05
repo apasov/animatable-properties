@@ -1,3 +1,9 @@
+## [3.0.17](https://github.com/apasov/animatable-properties/compare/v3.0.16...v3.0.17) (2024-04-05)
+
+### Features
+
+- upgrade mdn-data to v2.0.31 and remove scroll-timeline ([298285b](https://github.com/apasov/animatable-properties/commit/298285b25da7ded6d268e5b29bb4927cedecd9e5))
+
 ## [3.0.16](https://github.com/apasov/animatable-properties/compare/v3.0.15...v3.0.16) (2022-08-15)
 
 ### Features

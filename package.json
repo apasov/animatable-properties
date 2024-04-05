@@ -1,6 +1,6 @@
 {
   "name": "animatable-properties",
-  "version": "3.0.16",
+  "version": "3.0.17",
   "description": "Animatable CSS properties for use with Web Animations API, JavaScript and CSS",
   "main": "src/index.js",
   "author": "Ilya Apasov",
