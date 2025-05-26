@@ -1,3 +1,9 @@
+## [3.0.18](https://github.com/apasov/animatable-properties/compare/v3.0.17...v3.0.18) (2025-05-26)
+
+### Bug Fixes
+
+- upgrade dependencies ([8fbb0ed](https://github.com/apasov/animatable-properties/commit/8fbb0edfad66f2462ed18a2134eea1b88ab9e90c))
+
 ## [3.0.17](https://github.com/apasov/animatable-properties/compare/v3.0.16...v3.0.17) (2024-04-05)
 
 ### Features
